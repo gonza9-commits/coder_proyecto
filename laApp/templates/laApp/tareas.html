@@ -1,0 +1,20 @@
+{% extends 'laApp/base.html' %}
+
+{% load static %}
+
+{% block content %}
+  <h1>Tareas</h1>
+  <ul>
+    {% for tarea in tareas %}
+      <li>
+        <h2>{{ tarea.titulo }}</h2>
+        <p>{{ tarea.descripcion }}</p>
+        <p>Archivo: <a href="{{ tarea.archivo.url }}">{{ tarea.archivo.name }}</a></p>
+      </li>
+    {% endfor %}
+  </ul>
+  <p><a href="{% url 'crear-tarea' %}">Crear nueva tarea</a></p>
+  <a href="{% url 'ver-tareas' %}" class="btn btn-primary">Ver tareas</a>
+  <a href="{% url 'entregables' %}" class="btn btn-primary">Entregables</a>
+  <a href="{% url 'ver-entregables' %}" class="btn btn-primary">Ver entregables</a>
+{% endblock %}

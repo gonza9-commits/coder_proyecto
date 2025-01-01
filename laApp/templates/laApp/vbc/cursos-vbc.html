@@ -1,0 +1,44 @@
+{% extends 'laApp/base.html' %}
+
+{% load static %}
+
+{% block title %}
+La Casa del Codigo | Cursos 🙌
+{% endblock %}
+
+{% block content %}
+    
+    <h1>Nuestros cursos</h1>
+    <p>Los mejores cursos de Latinoamerica</p>
+
+    <div class="container">
+
+        <table class="table">
+            <thead>
+              <tr class="table-danger">
+                <th scope="col">Curso</th>
+                <th scope="col">Comisión</th>
+                <th scope="col">Acciones</th>
+              </tr>
+            </thead>
+            <tbody>
+                {% for curso in cursos %}
+              <tr class="table-success">
+                <td>{{curso.nombre}}</td>
+                <td>{{curso.comision}}</td>
+                <td>
+                  <a class="btn btn-danger" href="{% url 'cursos-vbc-eliminar' curso.id %}">Eliminar</a>
+                  <a class="btn btn-warning" href="{% url 'cursos-vbc-editar' curso.id %}">Editar</a>
+                  <a class="btn btn-info" href="{% url 'cursos-vbc-detalle' curso.id %}">Ver curso</a>
+
+                </td>
+                {% endfor %}
+              </tr>
+    
+            </tbody>
+          </table>
+
+    </div>
+    
+
+{% endblock  %}

@@ -1,0 +1,41 @@
+{% extends 'laApp/base.html' %}
+
+{% block title %}
+La casa del código | Inicio de sesión
+{% endblock %}
+
+{% block content %}
+
+<div class="container my-4">
+    <div class="row justify-content-center">
+        <div class="col-4">
+
+            <!-- <form action="" method="POST">
+                {% csrf_token %}
+                <div class="mb-3">
+                  <label class="form-label">Curso</label>
+                  <input name="curso" type="text" class="form-control">
+                </div>
+                <div class="mb-3">
+                  <label class="form-label">Comisión</label>
+                  <input name="comision" type="number" class="form-control">
+                </div>
+          
+                <button type="submit" class="btn btn-primary">Crear curso</button>
+          
+          </form> -->
+          <form action="" method="POST">
+          {% csrf_token %}
+
+          <input type="text" name="username" placeholder="Ingrese el nombre de usuario">
+          <input type="password" name="password" placeholder="Ingrese la contraseña">
+          
+          <div class="d-flex justify-content-around">
+              <button type="submit" class="btn btn-primary">Ingresar</button>
+          </div>
+          </form>
+        </div>
+    </div>
+</div>
+
+{% endblock %}

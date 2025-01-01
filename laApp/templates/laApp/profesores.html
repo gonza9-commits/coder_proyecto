@@ -1,0 +1,71 @@
+{% extends 'laApp/base.html' %}
+
+{% load static %}
+
+{% block title %}
+Classroom | Profesores 🙌
+{% endblock %}
+
+{% block content %}
+{% include 'laApp/include/publicidad2.html' %}
+    <h1 class="text-center">Nuestros profes</h1>
+    <p class="text-center">Los mejores profes de Latinoamerica</p>
+
+
+    <h2 class="text-center">Buscar profesor</h2>
+    <!-- Formulario de búsqueda -->
+    <div class="d-flex flex-column align-items-center mb-2">
+      <form action="" method="GET">
+       <input type="text" name="q" placeholder="Buscar..." required>
+       <button type="submit">Buscar</button>
+      </form>
+    </div>
+
+    <div class="container">
+
+        <table class="table">
+            <thead>
+              <tr class="table-danger">
+                <th scope="col">Nombre</th>
+                <th scope="col">Apellido</th>
+                <th scope="col">Correo electrónico</th>
+                <th scope="col">Profesión</th>
+                <th scope="col">Acciones</th>
+              </tr>
+            </thead>
+            <tbody>
+                {% for profe in profes %}
+              <tr class="table-success">
+                <td>{{profe.nombre}}</td>
+                <td>{{profe.apellido}}</td>
+                <td>{{profe.email}}</td>
+                <td>{{profe.profesion}}</td>
+
+                
+                {% if user.is_superuser %}
+                <td class="d-flex justify-content-evenly">
+                  <a class="btn btn-danger" href="{% url 'profe-eliminar' profe.id %}">Eliminar</a>
+                  <a class="btn btn-warning" href="{% url 'profe-editar' profe.id %}">Editar</a>
+                  
+                </td>
+
+                {% else %}
+                <td class="d-flex justify-content-evenly">
+                <p>No tiene permiso de edición.</p>
+                </td>
+
+                {% endif %}
+                {% endfor %}
+              </tr>
+    
+            </tbody>
+          </table>
+
+    </div>
+
+    <div class="container my-4">
+      <a class="btn btn-primary" href="{% url 'profe-formulario' %}">Agregar profesor</a>
+    </div>
+    
+
+{% endblock  %}

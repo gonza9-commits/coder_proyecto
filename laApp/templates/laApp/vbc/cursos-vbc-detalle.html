@@ -1,0 +1,34 @@
+{% extends 'laApp/base.html' %}
+
+{% block title %}
+La casa del código | Formularios
+{% endblock %}
+
+{% block content %}
+
+<div class="container my-4">
+    <div class="row justify-content-center">
+        <div class="col-4">
+            <h1>Nombre: {{curso.nombre}}</h1>
+            <h2>Comision: {{curso.comision}}</h2>
+            <p>{{curso.descripcion}}</p>
+
+            <!-- <form action="" method="POST">
+                {% csrf_token %}
+                <div class="mb-3">
+                  <label class="form-label">Curso</label>
+                  <input name="curso" type="text" class="form-control">
+                </div>
+                <div class="mb-3">
+                  <label class="form-label">Comisión</label>
+                  <input name="comision" type="number" class="form-control">
+                </div>
+          
+                <button type="submit" class="btn btn-primary">Crear curso</button>
+          
+          </form> -->
+        </div>
+    </div>
+</div>
+
+{% endblock %}

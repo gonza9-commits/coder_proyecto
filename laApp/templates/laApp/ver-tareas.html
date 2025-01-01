@@ -1,0 +1,15 @@
+{% extends 'laApp/base.html' %}
+
+{% block content %}
+  <h1>Tareas creadas</h1>
+  <ul>
+    {% for tarea in tareas %}
+      <li>
+        <h2>{{ tarea.titulo }}</h2>
+        <p>{{ tarea.descripcion }}</p>
+        <p>Archivo: <a href="{{ tarea.archivo.url }}">{{ tarea.archivo.name }}</a></p>
+        <p>Fecha de creación: {{ tarea.fecha_creacion }}</p>
+      </li>
+    {% endfor %}
+  </ul>
+{% endblock %}

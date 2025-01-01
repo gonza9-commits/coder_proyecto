@@ -1,0 +1,24 @@
+{% extends 'laApp/base.html' %}
+
+{% block title %}
+Classroom | Entregables
+{% endblock %}
+
+{% block content %}
+  <h1>Entregable</h1>
+  <form method="post">
+    {% csrf_token %}
+    {{ form.as_p }}
+    <button type="submit">Entregar</button>
+    <a href="{% url 'ver-entregables' %}" class="btn btn-primary">Ver entregables</a>
+  </form>
+  <ul>
+    {% for entregables in entregable %}
+      <li>
+        <h2>{{ entregable.nombre }}</h2>
+        <p>{{ entregable.texto }}</p>
+        <p>Fecha de entrega: {{ entregable.fecha_entrega }}</p>
+      </li>
+    {% endfor %}
+  </ul>
+{% endblock %}

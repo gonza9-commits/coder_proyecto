@@ -1,0 +1,30 @@
+{% extends 'laApp/base.html' %}
+
+{% block title %}
+La casa del código | Cambiar contraseña
+{% endblock %}
+
+{% block content %}
+
+<div class="container my-4">
+    <div class="row justify-content-center">
+        <div class="col-4">
+
+            <h1 class="text-center">Cambiar contraseña</h1>
+            <p class="text-center fw-bold fst-italic">Ingresa una nueva contraseña.</p>
+
+        <form action="" method="POST">
+        {% csrf_token %}
+        {{form_contraseña.as_p}}
+        
+        <div class="d-flex justify-content-around">
+          <button type="submit" class="btn btn-primary">Cambiar contraseña</button>
+          <a class="btn btn-secondary" href="{% url 'ver-perfil' %}">Volver</a>
+        </div>
+        </form>
+        
+        </div>
+    </div>
+</div>
+
+{% endblock %}

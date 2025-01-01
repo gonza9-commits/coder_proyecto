@@ -1,12 +1,48 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>La casa del código</title>
-</head>
-<body>
-    <h1>Nuestros cursos</h1>
-    <p>Los mejores cursos de latinoamerica</p>
-</body>
-</html>
+{% extends 'laApp/base.html' %}
+
+{% load static %}
+
+{% block title %}
+Classroom | Clases🙌
+{% endblock %}
+
+{% block content %}
+{% include 'laApp/include/publicidad.html' %}
+    <h1 class="text-center">Nuestras clases</h1>
+    <p class="text-center">Creá una clase</p>
+
+
+    <h2 class="text-center">Buscar clase</h2>
+    <!-- Formulario de búsqueda -->
+    <div class="d-flex flex-column align-items-center mb-2">
+      <form class="d-flex" action="" method="GET">
+       <input class="form-control me-4" type="text" name="q" placeholder="Buscar..." required>
+       <button class="btn btn-secondary" type="submit">Buscar</button>
+      </form>
+    </div>
+
+    <div class="container">
+
+        <table class="table">
+            <thead>
+              <tr class="table-danger">
+                <th scope="col">Clase</th>
+                <th scope="col">Comisión</th>
+              </tr>
+            </thead>
+            <tbody>
+                {% for curso in cursos %}
+              <tr class="table-success">
+                <td>{{curso.nombre}}</td>
+                <td>{{curso.comision}}</td>
+                {% endfor %}
+              </tr>
+    
+            </tbody>
+          </table>
+
+    </div>
+    
+    <a class="btn btn-primary"  href="{% url 'curso-formulario' %}">Agregar clase</a>
+
+{% endblock  %}

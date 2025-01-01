@@ -1,0 +1,21 @@
+{% extends 'laApp/base.html' %}
+
+{% load static %}
+
+{% block title %}
+Classroom | Perfil de {{user.username}}
+{% endblock %}
+
+{% block content %}
+    <h1 class="text-center">Mi perfil</h1>
+    <p class="text-center">Todos los datos</p>
+
+
+    <div class="container">
+
+        <p>Nombre: {{user.first_name | default:"Agrega tu nombre"}}</p>
+        <p>Apellido: {{user.last_name | default:"Agrega tu apellido"}}</p>
+        <p>Correo electrónico: {{user.email | default:"Agrega tu email"}}</p>
+        <img src ="{{user.profile.photo.url}}" alt="">
+    </div>
+{% endblock  %}

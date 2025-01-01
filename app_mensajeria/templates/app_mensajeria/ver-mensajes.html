@@ -1,0 +1,22 @@
+{% extends 'laApp/base.html' %}
+
+{% load static %}
+
+{% block title %}
+La Casa del Codigo | Mis mensajes
+{% endblock %}
+
+{% block content %}
+
+    <h1 class="text-center">Mis mensajes</h1>
+    {% if mensajes %}
+        {% for mensaje in mensajes %}
+            <p>Enviado por: {{mensaje.remitente}}</p>
+            <p>Mensaje: {{mensaje.contenido}}</p>
+            <p>Fecha de envio: {{mensaje.fecha_envio}}</p>
+        {% endfor %}
+    {% else %}
+    <p>Nadie te mando mensajes</p>
+    {% endif %}
+
+{% endblock  %}

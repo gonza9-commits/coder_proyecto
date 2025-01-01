@@ -1,0 +1,14 @@
+{% extends 'laApp/base.html' %}
+
+{% block content %}
+  <h1>Entregables</h1>
+  <ul>
+    {% for entregable in entregables %}
+      <li>
+        <h2>{{ entregable.nombre }}</h2>
+        <p>{{ entregable.texto }}</p>
+        <p>Entregado: {{ entregable.entregado }}</p>
+      </li>
+    {% endfor %}
+  </ul>
+{% endblock %}

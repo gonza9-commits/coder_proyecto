@@ -1,0 +1,34 @@
+{% extends 'laApp/base.html' %}
+
+{% load static %}
+
+{% block title %}
+Classroom | Información
+{% endblock %}
+
+{% block content %}
+
+    <main>
+        <section id="autores">
+            <h2 class="text-center">Acerca de los autores</h2>
+            <div class="autor">
+                    <div class="p-5"><img class="img-fluid rounded-circle" src="{% static 'laApp/assets/img/imgh.jpg' %}" alt="..." /></div>
+               
+                <h3>Nombre del autor 1</h3>
+                <p>Juan Pablo Sánchez es un técnico y profesor universitario nacido en Buenos Aires, Argentina. Con una trayectoria tecnológica que abarca más de dos décadas, Sánchez ha programado numerosas páginas, programas y aplicaciones que han sido ampliamente reconocidos por la crítica y el público. Actualmente, Sánchez vive en Barcelona, donde continúa escribiendo y enseñando literatura en una universidad local.</p>
+            </div>
+            <div class="autor">
+                <img src="{% static 'laApp/assets/img/imgh1.jpg' %}" alt="Autor 2">
+                <h3>Nombre del autor 2</h3>
+                <p>Alejandro 'Alex' Hernández es un desarrollador de software y programador apasionado con más de 10 años de experiencia en el campo. Nacido en Ciudad de México, México, Alex se interesó por la programación desde una edad temprana y ha dedicado su carrera a dominar lenguajes como Python, Java y JavaScript. Con una especialización en desarrollo web y aplicaciones móviles, Alex ha trabajado en proyectos de gran escala para empresas líderes en tecnología y ha sido reconocido por su capacidad para resolver problemas complejos y crear soluciones innovadoras. Actualmente, Alex es el líder del equipo de desarrollo en una startup de tecnología en San Francisco, donde continúa diseñando y construyendo aplicaciones que cambian la forma en que las personas interactúan con la tecnología.</p>
+            </div>
+        </section>
+        <section id="pagina">
+            <h2>Acerca de la página</h2>
+            <p>La página cuenta con 4 apartados(cursos, profesores, estudiantes, entregables) los cuales son botones que al presionarlos(click izquierde del mouse) te llevan a su correspondiente apartado. En los tres primeros apartados(curso, estudiantes, entregables) al entrar en ellos se puede observar una tabla de los registros del apartado y sus características, también cuenta con un buscador de los registros del apartado. Además, en caso de tener un perfil en nuestra página, habrá un botón desplegable en la barra de inicio con el nombre:"PERFIL", el cual te permite ver tu perfil, editarlo y cambiarle la contraseña. Y si quieres aprovechar al máximo el funcionamiento de nuestra página hay otro botón desplegable el cual te permite crear una clase y ver todas las clases. Por último, la página cuenta con un botón desplegable denominado:"MENSAJES" en caso de estar registrado y en sesión, que permite enviar mensajes a los estudiantes y/o profesores y ver dichos mensajes. </p>
+        </section>
+    </main>
+    <footer>
+        <p>&copy; 2024 Classroom vol2</p>
+    </footer>
+{% endblock %}

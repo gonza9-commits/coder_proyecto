@@ -1,0 +1,65 @@
+{% extends 'laApp/base.html' %}
+
+{% load static %}
+
+{% block title %}
+Classroom | Estudiantes 
+{% endblock %}
+
+
+{% block content %}
+
+    <h1 class="text-center">Nuestros estudiantes</h1>
+
+
+    <h2 class="text-center">Buscar estudiante</h2>
+     <!-- Formulario de búsqueda  -->
+    <div class="d-flex flex-column align-items-center mb-2">
+      <form class="d-flex" action="" method="GET">
+       <input class="form-control me-4" type="text" name="q" placeholder="Buscar..." required>
+       <button class="btn btn-secondary" type="submit">Buscar</button>
+      </form>
+    </div>
+
+    <div class="container">
+
+        <table class="table">
+            <thead>
+              <tr class="table-danger">
+                <th scope="col">Nombre</th>
+                <th scope="col">Apellido</th>
+                <th scope="col">Email</th>
+              </tr>
+            </thead>
+            <tbody>
+                {% for estudiante in estudiantes %}
+              <tr class="table-success">
+                <td>{{estudiante.nombre}}</td>
+                <td>{{estudiante.apellido}}</td>
+                <td>{{estudiante.email}}</td>
+
+
+                {% if user.is_superuser %}
+                <td class="d-flex justify-content-evenly">
+                  <a class="btn btn-danger" href="{% url 'eliminar-estudiante' estudiante.id %}">Eliminar</a>
+                  <a class="btn btn-warning" href="{% url 'editar-estudiante' estudiante.id %}">Editar</a>
+                  
+                </td>
+
+                {% else %}
+                <td class="d-flex justify-content-evenly">
+                <p>No tiene permiso de edición.</p>
+                </td>
+
+                {% endif %}
+                {% endfor %}
+              </tr>
+    
+            </tbody>
+          </table>
+
+    </div>
+    
+    <a class="btn btn-primary"  href="{% url 'estudiante-formulario' %}">Agregar estudiante</a>
+
+{% endblock  %} 
